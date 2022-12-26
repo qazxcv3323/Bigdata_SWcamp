@@ -1,0 +1,26 @@
+JDK 19.0.1 2022-10-18설치			---> 기본설정으로 설치해도 되지만 가끔 경로에 공백이 들어가면 오류가 나는 경우가 있어서 C:\Java\에 설치함
+					( https://www.oracle.com/java/technologies/javase/jdk19-archive-downloads.html )
+
+JAVA_HOME 설정				---> [내컴퓨터 > 우클릭 > 속성 > 고급 시스템 설정 > 환경변수(System)] C:\Java\jdk-19\bin\server
+
+python -m venv NLP			---> 가상환경 생성. 파이썬의 버전을 지정하지 않으면 현재 시점에서 3.10.6 버전이 설치됨
+cd NLP					---> 생성된 가상환경 폴더로 이동
+.\Scripts\activate				---> 가상환경 활성화
+python -m pip install --upgrade pip		---> pip 패키지를 22.3으로 업그레이드. 가끔 pip 패키지의 버전이 낮아서 다른 패키지가 설치되지 않는 경우가 있음
+pip install JPype1				---> JPype1 설치
+pip install jupyter				---> Jupyter Notebook 설치
+pip install konlpy				---> konlpy 설치
+
+jupyter notebook				---> Jupyter Notebook 실행
+
+
+
+------ NLP.ipynb ----------------------
+
+import konlpy
+from konlpy.tag import Komoran
+
+komoran = Komoran()
+text = "파이썬으로 형태소 분석을 해 봅시다."
+pos = komoran.pos(text)
+print(pos)
